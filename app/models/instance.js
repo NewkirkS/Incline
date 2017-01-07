@@ -6,5 +6,5 @@ export default DS.Model.extend({
   hasCount: DS.attr(),
   duration: DS.attr(),
   count: DS.attr(),
-  habit: belongsTo('habit', {async: true})
+  habit: DS.belongsTo('habit', {async: true})
 });
