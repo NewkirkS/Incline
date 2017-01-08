@@ -12,12 +12,6 @@ export default Ember.Service.extend({
     this.toggleProperty("authenticated");
     this.set("user", null);
   },
-  createAccount() {
-
-  },
-  deleteAccount() {
-
-  },
   validateUsername() {
 
   },
