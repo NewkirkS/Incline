@@ -9,7 +9,7 @@
       <label for="login-password">Password</label>
       {{input type="password" id="login-password"}}
     </div>
-    <button type="submit">Log In</button>
+    <button type="submit" action "logIn">Log In</button>
   </form>
   <form>
     <h2>Create Account</h2>
@@ -21,6 +21,6 @@
       <label for="create-password">Password</label>
       {{input type="password" id="create-password"}}
     </div>
-    <button type="submit">Create Account</button>
+    <button type="submit"{{action "createAccount"}}>Create Account</button>
   </form>
 </div>
