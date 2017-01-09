@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+  authentication: Ember.inject.service(),
   model() {
     return Ember.RSVP.hash({
       //If user = true, return habits where habits.user = user
@@ -17,7 +18,7 @@ export default Ember.Route.extend({
       this.loginUser(params);
     },
     loginUser(params) {
-      
+
     },
   }
 });

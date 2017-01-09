@@ -12,10 +12,14 @@ export default Ember.Service.extend({
     this.toggleProperty("authenticated");
     this.set("user", null);
   },
-  validateUsername() {
+  validateUsername(username) {
 
   },
-  validatePassword() {
-
+  validatePassword(password) {
+    if (password.length < 8 || password.match(/[+-=_:;|!@#$%^&*1234567890]/) === null || password.match(/[ ]/) != null){
+      alert("Please enter a secure password (8 or more chars with at least one number or symbol)")
+    } else {
+      return true;
+    }
   }
 });
