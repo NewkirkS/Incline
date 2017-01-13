@@ -1,16 +1,21 @@
 import Ember from 'ember';
 
 export default Ember.Service.extend({
-  authenticatied: false,
-  user: null,
+  currentUser: null,
+  authenticated: Ember.computed("currentUser", function(){
+    if (this.get("currentUser") === null) {
+      return false;
+    } else {
+      return true;
+    }
+  }),
   logIn(params) {
     //retrieve user record where username = input
     //if password hash in db = hash of password input make user = db user
     //else error
   },
   logOut() {
-    this.toggleProperty("authenticated");
-    this.set("user", null);
+    this.set("currentUser", null);
   },
   validateUsername(username) {
     //Does not check for uniqueness. Handled by route due to db request. Current valdation passable but weak. Strengthen later.
