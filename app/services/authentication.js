@@ -17,10 +17,16 @@ export default Ember.Service.extend({
   logOut() {
     this.set("currentUser", null);
   },
+  checkUsernameUnique(username){
+    var users = this.store.findAll('user');
+  },
   validateUsername(username) {
-    //Does not check for uniqueness. Handled by route due to db request. Current valdation passable but weak. Strengthen later.
+    //Current valdation passable but weak. Strengthen later.
+
     if (username.length < 4 || username.length > 14 || username.match(/[ ]/) != null){
       alert("Please enter a valid username");
+    } else if(checkUsernameUnique(username)) {
+      alert("This username is taken. Please try another.")
     } else {
       return true;
     }

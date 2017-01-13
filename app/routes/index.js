@@ -10,11 +10,11 @@ export default Ember.Route.extend({
   },
   actions: {
     createUser(params) {
-      //validate username
-      //validate password
+      this.get("authentication").validateUsername(params.username);
+      this.get("authentication").validatePassword(params.password);
       var newUser = this.store.createRecord('user', params);
       newUser.save();
-      this.loginUser(params);
+      // this.loginUser(params);
     },
     loginUser(params) {
 
