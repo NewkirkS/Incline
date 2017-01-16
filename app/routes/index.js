@@ -10,10 +10,15 @@ export default Ember.Route.extend({
   },
   actions: {
     createUser(params) {
-      this.get("authentication").validateUsername(params.username);
-      this.get("authentication").validatePassword(params.password);
-      var newUser = this.store.createRecord('user', params);
-      newUser.save();
+      firebase.auth().createUserWithEmailAndPassword(params.email, params.password).catch(function(error) {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        if (errorCode === 'auth/weak-password') {
+          alert('The password is too weak');
+        } else {
+          alert(errorMessage);
+        }
+      });
       // this.loginUser(params);
     },
     loginUser(params) {

@@ -18,11 +18,11 @@ export default Ember.Service.extend({
     this.set("currentUser", null);
   },
   checkUsernameUnique(username){
-    var users = this.store.findAll('user');
+    var = this.store.findAll('user');
+
   },
   validateUsername(username) {
     //Current valdation passable but weak. Strengthen later.
-
     if (username.length < 4 || username.length > 14 || username.match(/[ ]/) != null){
       alert("Please enter a valid username");
     } else if(checkUsernameUnique(username)) {
