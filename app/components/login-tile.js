@@ -5,8 +5,8 @@ export default Ember.Component.extend({
   actions: {
     createUser() {
       var params = {
-        username: this.get('create-username');
-        password: this.get('password');
+        username: this.get('create-username'),
+        password: this.get('password')
       };
       if (params.username === undefined || params.password === undefined) {
         alert("Please fill out all fields.");
