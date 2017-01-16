@@ -1,5 +1,5 @@
 import Ember from 'ember';
-
+import firebase from 'firebase';
 
 export default Ember.Route.extend({
   authentication: Ember.inject.service(),
@@ -11,7 +11,6 @@ export default Ember.Route.extend({
   },
   actions: {
     createUser(params) {
-      var firebase = require("firebase/app");
       firebase.auth().createUserWithEmailAndPassword(params.email, params.password).catch(function(error) {
         var errorCode = error.code;
         var errorMessage = error.message;
