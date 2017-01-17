@@ -1,8 +1,9 @@
 import Ember from 'ember';
-import firebase from 'firebase';
 
 export default Ember.Route.extend({
-  authentication: Ember.inject.service(),
+  beforeModel() {
+    return this.get('session').fetch().catch(function() {});
+  },
   model() {
     return Ember.RSVP.hash({
       //If user = true, return habits where habits.user = user
@@ -10,19 +11,25 @@ export default Ember.Route.extend({
     });
   },
   actions: {
-    createUser(params) {
-      firebase.auth().createUserWithEmailAndPassword(params.email, params.password).catch(function(error) {
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        if (errorCode === 'auth/weak-password') {
-          alert('The password is too weak');
-        } else {
-          alert(errorMessage);
-        }
+    // createUser(params) {
+    //   Firebase.auth().createUserWithEmailAndPassword(params.email, params.password).catch(function(error) {
+    //     var errorCode = error.code;
+    //     var errorMessage = error.message;
+    //     if (errorCode === 'auth/weak-password') {
+    //       alert('The password is too weak');
+    //     } else {
+    //       alert(errorMessage);
+    //     }
+    //   });
+    // },
+    signIn(provider) {
+      this.get('session').open('firebase', {provider: provider}).then(function(data) {
+        console.log(data.currentUser);
+        console.log(session);
       });
     },
-    loginUser() {
-
-    },
+    signOut() {
+      this.get('session').close();
+    }
   }
 });

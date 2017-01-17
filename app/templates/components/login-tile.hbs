@@ -1,26 +1,6 @@
-<div class="login-tile">
-  <form>
-    <h2>Login</h2>
-    <div class="form-group">
-      <label for="login-username">Username</label>
-      {{input id="login-username"}}
-    </div>
-    <div class="form-group">
-      <label for="login-password">Password</label>
-      {{input type="password" id="login-password"}}
-    </div>
-    <button type="submit" {{action "logIn"}}>Log In</button>
-  </form>
-  <form>
-    <h2>Create Account</h2>
-    <div class="form-group">
-      <label for="create-username">Username</label>
-      {{input id="create-username"}}
-    </div>
-    <div class="form-group">
-      <label for="create-password">Password</label>
-      {{input type="password" id="create-password"}}
-    </div>
-    <button type="submit"{{action "createUser"}}>Create Account</button>
-  </form>
-</div>
+{{#if session.isAuthenticated}}
+  <h3>Logged in as {{session.currentUser.displayName}}</h3>
+  <button {{action "signOut"}}>Sign Out</button>
+{{else}}
+  <button {{action "signIn" "google"}}>Sign In</button>
+{{/if}}
