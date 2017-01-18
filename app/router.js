@@ -8,7 +8,6 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('habit');
-  this.route('account');
 });
 
 export default Router;
