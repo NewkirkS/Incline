@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  authentication: Ember.inject.service(),
+  session: Ember.inject.service(),
   actions: {
     createUser() {
       var params = {

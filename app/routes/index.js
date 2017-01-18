@@ -25,11 +25,13 @@ export default Ember.Route.extend({
     signIn(provider) {
       this.get('session').open('firebase', {provider: provider}).then(function(data) {
         console.log(data.currentUser);
-        console.log(session);
       });
     },
     signOut() {
       this.get('session').close();
-    }
+    },
+    session() {
+      return this.get("session").fetch("google");
+    },
   }
 });

@@ -1,5 +1,5 @@
 {{#if session.isAuthenticated}}
-  <h3>Logged in as {{session.currentUser.displayName}}</h3>
+  <h3>Logged in as {{session.data.currentUser.W.email}}</h3>
   <button {{action "signOut"}}>Sign Out</button>
 {{else}}
   <button {{action "signIn" "google"}}>Sign In</button>
