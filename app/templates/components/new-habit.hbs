@@ -1,9 +1,9 @@
 <div class="new-habit">
-  <form {{action "createHabit"}}>
+  <form>
     <div class="form-group">
       <label for="name">New Habit</label>
       {{input value=name id="name"}}
     </div>
-    <button class="btn">Create</button>
+    <button class="btn" {{action "newHabit"}}>Create</button>
   </form>
 </div>

@@ -18,6 +18,10 @@ export default Ember.Route.extend({
     },
     signOut() {
       this.get('session').close();
+    },
+    newHabit(params) {
+      var newHabit = this.store.createRecord('habit', params);
+      newHabit.save();
     }
   }
 });

@@ -6,6 +6,7 @@ export default Ember.Component.extend({
   actions: {
     newHabit() {
       var params = {
+        uid: this.get("session").get("currentUser.uid"),
         name: this.get("name"),
       };
       if (params.name === undefined) {
