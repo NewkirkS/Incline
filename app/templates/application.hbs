@@ -1,14 +1,21 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
-    {{#link-to 'index' class="navbar-brand"}}INCLINE{{/link-to}}
-    {{#if session.isAuthenticated}}
-    <p class="navbar-text">
-      Welcome, {{session.currentUser.displayName}}
-    </p>
-      <button type="button" class="btn btn-default navbar-btn" {{action "signOut"}}>Sign Out</button>
-    {{else}}
-        <button type="button" class="btn btn-default navbar-btn" {{action "signIn" "google"}}>Sign In with Google</button>
-    {{/if}}
+    <div class="navbar-header">
+      {{#link-to 'index' class="navbar-brand"}}<img alt="logo" src="/assets/images/logo.png">{{/link-to}}
+      <div class="navbar-right">
+        {{#if session.isAuthenticated}}
+        <p class="navbar-text">
+          Welcome, {{session.currentUser.displayName}}
+        </p>
+          <button type="button" class="btn btn-default navbar-btn" {{action "signOut"}}>Sign Out</button>
+        {{else}}
+          <p class="navbar-text">
+            INCLINE
+          </p>
+          <button type="button" class="btn btn-default navbar-btn" {{action "signIn" "google"}}>Sign In with Google</button>
+        {{/if}}
+      </div>
+    </div>
   </div>
 </nav>
 {{outlet}}
