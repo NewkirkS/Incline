@@ -1,1 +1,9 @@
-{{yield}}
+<div class="new-habit">
+  <form {{action "createHabit"}}>
+    <div class="form-group">
+      <label for="name">New Habit</label>
+      {{input value=name id="name"}}
+    </div>
+    <button class="btn">Create</button>
+  </form>
+</div>
