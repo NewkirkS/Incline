@@ -1,1 +1,6 @@
-{{yield}}
+<h2>Your Habits</h2>
+{{#each model as |habit|}}
+<p>
+  {{habit.name}}
+</p>
+{{/each}}
