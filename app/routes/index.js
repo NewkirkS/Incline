@@ -8,11 +8,8 @@ export default Ember.Route.extend({
 
     var authenticated = this.get("session").get("isAuthenticated");
       if (authenticated) {
-        var uid = this.get("session").get("currentUser.uid");
-        // return Ember.RSVP.hash({
-        //   habits: this.store.query("habit", { filter: { uid: uid} })
-        // });
-        return this.store.query("habit", { filter: { uid: uid} });
+        var userId = this.get("session").get("currentUser.uid");
+        return this.store.query("habit", { orderBy: "uid", equalTo: userId });
       }
   },
   actions: {
@@ -30,6 +27,11 @@ export default Ember.Route.extend({
     newHabit(params) {
       var newHabit = this.store.createRecord('habit', params);
       newHabit.save();
+    },
+    consoleLog() {
+      var userId = this.get("session").get("currentUser.uid");
+      var log = this.store.query("habit", { filter: { uid: MQmJNFPTYcS0qTK3wXFwC59L3W62 } });
+      console.log(userId);
     }
   }
 });
