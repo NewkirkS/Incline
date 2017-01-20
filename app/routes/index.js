@@ -25,7 +25,7 @@ export default Ember.Route.extend({
     },
     signOut() {
       this.get('session').close();
-      this.transitionTo("signout");
+      this.store.unloadAll();
     },
     newHabit(params) {
       var newHabit = this.store.createRecord('habit', params);
