@@ -1,4 +1,5 @@
 <div class="habit-tile">
   <h3>{{habit.name}}</h3>
+  <h4>{{#link-to "habit" habit.id}}Go to habit dashboard{{/link-to}}</h4>
   <button class="btn btn-lrg btn-success"{{action "addInstance" habit}}><span class="glyphicon glyphicon-ok"></span></button>
 </div>
