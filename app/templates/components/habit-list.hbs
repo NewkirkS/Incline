@@ -1,6 +1,4 @@
 <h2>Your Habits</h2>
 {{#each model as |habit|}}
-<p>
-  {{habit.name}}
-</p>
+{{habit-tile habit=habit addInstance="addInstance"}}
 {{/each}}

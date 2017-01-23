@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import moment from 'moment';
 
 export default Ember.Route.extend({
   beforeModel() {
@@ -15,7 +16,7 @@ export default Ember.Route.extend({
   actions: {
     signIn(provider) {
       var that = this;
-      this.get('session').open('firebase', {provider: provider}).then(function(data) {
+      this.get('session').open('firebase', {provider: provider}).then(function() {
         // console.log(data); REMOVE WHEN DONE
         that.refresh();
       });
@@ -28,10 +29,17 @@ export default Ember.Route.extend({
       var newHabit = this.store.createRecord('habit', params);
       newHabit.save();
     },
+    addInstance(params) {
+      var newInstance = this.store.createRecord('instance', params);
+      var habit = params.habit;
+      habit.get('instances').addObject(newInstance);
+      newInstance.save().then(function() {
+        return habit.save();
+      });
+    },
     consoleLog() {
-      var userId = this.get("session").get("currentUser.uid");
-      var log = this.store.query("habit", { filter: { uid: MQmJNFPTYcS0qTK3wXFwC59L3W62 } });
-      console.log(userId);
+
+      console.log(moment().format("L"));
     }
   }
 });
