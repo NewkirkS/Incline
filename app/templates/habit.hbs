@@ -1,13 +1,15 @@
-{{habit-dashboard model=model}}
+{{!-- {{habit-dashboard model=model}} --}}
 
-{{#each model.instances as |instance|}}
+{{!-- {{#each model.instances as |instance|}}
   <p>
     {{instance.timestamp}}
   </p>
-{{/each}}
+{{/each}} --}}
+
+<h1>{{model.habit.name}}</h1>
 
 <div id="myChart">
 
 </div>
 
-<button {{action "renderChart"}}>Show chart</button>
+<button {{action "renderChart" model.instances}}>Show chart</button>
