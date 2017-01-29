@@ -8,7 +8,6 @@ export default Ember.Component.extend({
       var params = {
         uid: this.get("session").get("currentUser.uid"),
         timestamp: moment().format("YYYY-MM-DD"),
-        count: 1,
         habit: habit
       };
       this.sendAction("addInstance", params);
