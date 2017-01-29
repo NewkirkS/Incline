@@ -10,7 +10,12 @@ export default Ember.Route.extend({
     var authenticated = this.get("session").get("isAuthenticated");
       if (authenticated) {
         var userId = this.get("session").get("currentUser.uid");
-        return this.store.query("habit", { orderBy: "uid", equalTo: userId });
+        return Ember.RSVP.hash({
+          habits: this.store.query("habit", {
+            orderBy: "uid",
+            equalTo: userId
+          })
+        });
       }
   },
   actions: {
@@ -32,10 +37,15 @@ export default Ember.Route.extend({
     addInstance(params) {
       var newInstance = this.store.createRecord('instance', params);
       var habit = params.habit;
-      habit.get('instances').addObject(newInstance);
-      newInstance.save().then(function() {
-        return habit.save();
-      });
+      var currentDate = "2011-01-01";
+      var userId = this.get("session").get("currentUser.uid");
+      var instances = this.store.query("instance", { orderBy: "uid", equalTo: userId });
+
+      console.log(instances.findBy('timestamp', '2017-01-28'));
+      // habit.get('instances').addObject(newInstance);
+      // newInstance.save().then(function() {
+      //   return habit.save();
+      // });
     },
     consoleLog() {
 

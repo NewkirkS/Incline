@@ -14,6 +14,7 @@ export default Ember.Component.extend({
       } else {
         this.sendAction("newHabit", params);
       }
+      this.set("name", "");
     }
   }
 });
