@@ -39,7 +39,7 @@ export default Ember.Route.extend({
     },
     consoleLog() {
 
-      console.log(moment().format("L"));
+      console.log(moment().format("YYYY"));
     }
   }
 });
