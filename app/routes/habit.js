@@ -24,7 +24,7 @@ export default Ember.Route.extend({
       }
     });
 
-    console.log(valueArray);
+    //MAKE YEAR DYNAMIC!!!! v
 
     var myConfig = {
       "type":"calendar",
