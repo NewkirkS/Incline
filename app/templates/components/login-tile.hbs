@@ -1,6 +1,12 @@
-{{#if session.isAuthenticated}}
-  <h3>Logged in as {{session.currentUser.email}} {{session.currentUser.displayName}}</h3>
-  <button {{action "signOut"}}>Sign Out</button>
-{{else}}
-  <button {{action "signIn" "google"}}>Sign In</button>
-{{/if}}
+<div class="">
+  <div class="row">
+    <div class="sign-in col-sm-6 col-sm-offset-3">
+      <img src="/assets/images/googleicon.png" alt="gooogle" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="sign-in-button col-sm-6 col-sm-offset-3">
+      <button class="btn btn-info btn-lrg" {{action "signIn" "google"}}>Sign in with Google</button>
+    </div>
+  </div>
+</div>
