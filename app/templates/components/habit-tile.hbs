@@ -1,11 +1,11 @@
 <div class="row">
   <div class="col-sm-8 habit-name-box">
-    <h3 class="habit-name">{{habit.name}}</h3>
+    <h2 class="habit-name">{{habit.name}}</h2>
   </div>
   <div class="col-sm-2 instance-button-box">
     <button class="btn btn-lrg btn-success add-instance"{{action "addInstance" habit}}><span class="glyphicon glyphicon-ok"></span></button>
   </div>
   <div class="col-sm-2 calendar-button-box">
-    <button class='btn btn-info'{{action "goToHabit" habit.id}}><span class="glyphicon glyphicon-calendar"></span></button>
+    <button class='btn btn-info'{{action "goToHabit" habit.id}}><span class="glyphicon glyphicon-equalizer"></span></button>
   </div>
 </div>

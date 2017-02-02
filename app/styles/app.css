@@ -1,8 +1,24 @@
+body {
+  background-image: url('https://static.pexels.com/photos/23049/pexels-photo.jpg');
+  overflow-x: hidden;
+}
+
+.nav-logo {
+  margin-top: -20%;
+}
+
+.list-header {
+  font-family: 'Raleway', sans-serif;
+  font-size: 4em;
+  margin-bottom: 50px;
+}
+
 .habit-name-box {
+  font-family: 'Raleway', sans-serif;
   text-align: center;
 }
 
-.habit-name-box h3 {
+.habit-name-box h2 {
   position: relative;
   top: 75%;
   transform: translateY(-25%);
@@ -32,9 +48,4 @@
 
 .list-header {
   text-align: center;
-}
-
-.tile-line {
-  border-right: solid black 1px;
-  height 100px;
 }
