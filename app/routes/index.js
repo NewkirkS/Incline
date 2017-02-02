@@ -13,7 +13,7 @@ export default Ember.Route.extend({
         return Ember.RSVP.hash({
           habits: this.store.query("habit", {
             orderBy: "uid",
-            equalTo: userId
+            equalTo: userId,
           })
         });
       }
@@ -22,7 +22,6 @@ export default Ember.Route.extend({
     signIn(provider) {
       var that = this;
       this.get('session').open('firebase', {provider: provider}).then(function() {
-        // console.log(data); REMOVE WHEN DONE
         that.refresh();
       });
     },
@@ -37,7 +36,7 @@ export default Ember.Route.extend({
     addInstance(params) {
       var newInstance = this.store.createRecord('instance', params);
       var habit = params.habit;
-  
+
       habit.get('instances').addObject(newInstance);
       newInstance.save().then(function() {
         return habit.save();

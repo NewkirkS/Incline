@@ -1,0 +1,40 @@
+.habit-name-box {
+  text-align: center;
+}
+
+.habit-name-box h3 {
+  position: relative;
+  top: 75%;
+  transform: translateY(-25%);
+}
+
+.instance-button-box {
+  height: 58px;
+  text-align: center;
+}
+
+.instance-button-box button{
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.calendar-button-box {
+  height: 58px;
+  text-align: center;
+}
+
+.calendar-button-box button{
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.list-header {
+  text-align: center;
+}
+
+.tile-line {
+  border-right: solid black 1px;
+  height 100px;
+}

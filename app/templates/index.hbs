@@ -1,4 +1,11 @@
-<button {{action "consoleLog"}}>LOG IT</button>
-{{new-habit newHabit="newHabit"}}
-{{habit-list model=model addInstance="addInstance"}}
+{{#if session.isAuthenticated}}
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    {{new-habit newHabit="newHabit"}}
+    {{habit-list model=model addInstance="addInstance"}}
+  </div>
+</div>
+{{else}}
+{{landing-page}}
 {{login-tile signOut="signOut" signIn="signIn"}}
+{{/if}}

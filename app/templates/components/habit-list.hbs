@@ -1,4 +1,10 @@
-<h2>Your Habits</h2>
-{{#each model.habits as |habit|}}
-{{habit-tile habit=habit addInstance="addInstance"}}
-{{/each}}
+<h2 class="list-header">Your Habits</h2>
+<div class="row">
+  {{#each model.habits as |habit|}}
+    <div class="habit-tile col-sm-6 col-sm-offset-3 well">
+      <div>
+        {{habit-tile habit=habit addInstance="addInstance"}}
+      </div>
+    </div>
+  {{/each}}
+</div>
